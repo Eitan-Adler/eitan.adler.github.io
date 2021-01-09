@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="timer">
+      <span class="min">Minutes</span>
+      <span><input type="number" class="input minutes" min="0" /></span>
+      <span class="sec">Seconds</span>
+      <span
+        ><input type="number" class="input seconds" min="0" max="59"
+      /></span>
+      <div class="clock">
+        <span class="clock minutes">00</span>
+        <span>:</span>
+        <span class="clock seconds">00</span>
+      </div>
+      <div class="pic">
+        <div class="lds-spinner" style="display: none">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <img src="" alt="" style="display: none" />
+      </div>
+      <button class="start-countdown">Start Countdown</button>
+      <button class="pause-countdown">Pause</button>
+      <button class="stop-countdown">Stop Countdown</button>
+      <script src="main.js"></script>
+    </div>
+  </body>
+</html>
