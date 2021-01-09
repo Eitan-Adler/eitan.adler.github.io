@@ -4,11 +4,14 @@ var clockMinutes = document.querySelector(".clock.minutes");
 var clockSeconds = document.querySelector(".clock.seconds");
 var buttonStartCountdown = document.querySelector(".start-countdown");
 var buttonStopCountdown = document.querySelector(".stop-countdown");
+var buttonPauseCountdown = document.querySelector(".pause-countdown");
 var clock = document.querySelector(".clock");
 var img = document.querySelector("img");
 var gong = new Audio("http://soundbible.com/mp3/chinese-gong-daniel_simon.mp3");
 var spinner = document.querySelector(".lds-spinner");
-
+var minutes;
+var seconds;
+var pause = false;
 function addZiro(num) {
   if (num < 10) {
     return "0" + num;
@@ -20,22 +23,7 @@ function displayTime(min, sec) {
   clockMinutes.textContent = addZiro(min);
   clockSeconds.textContent = addZiro(sec);
 }
-inputMinutes.oninput = function () {
-  var minutes = +inputMinutes.value;
-  clockMinutes.textContent = addZiro(minutes);
-};
-inputSeconds.oninput = function () {
-  var seconds = +inputSeconds.value;
-  clockSeconds.textContent = addZiro(seconds);
-};
-
-buttonStartCountdown.addEventListener("click", startCD);
-function startCD() {
-  inputMinutes.disabled = true;
-  inputSeconds.disabled = true;
-  var seconds = +inputSeconds.value;
-  var minutes = +inputMinutes.value;
-  displayTime(minutes, seconds);
+function runClock() {
   secIntervalId = setInterval(secCountDown, 1000);
   function secCountDown() {
     if (seconds === 0 && minutes > 0) {
@@ -62,9 +50,43 @@ function startCD() {
     }
   }
 }
+inputMinutes.oninput = function () {
+  minutes = +inputMinutes.value;
+  seconds = +inputSeconds.value;
+  displayTime(minutes, seconds);
+};
+inputSeconds.oninput = function () {
+  minutes = +inputMinutes.value;
+  seconds = +inputSeconds.value;
+  displayTime(minutes, seconds);
+};
+
+buttonStartCountdown.addEventListener("click", startCD);
+function startCD() {
+  inputMinutes.disabled = true;
+  inputSeconds.disabled = true;
+  buttonStartCountdown.disabled = true;
+  if (pause === false) {
+    seconds = +inputSeconds.value;
+    minutes = +inputMinutes.value;
+    displayTime(minutes, seconds);
+    runClock();
+  } else {
+    runClock();
+  }
+}
+
 buttonStopCountdown.addEventListener("click", stopCD);
 function stopCD() {
   clearInterval(secIntervalId);
   inputMinutes.disabled = false;
   inputSeconds.disabled = false;
+  buttonStartCountdown.disabled = false;
+  pause = false;
+}
+buttonPauseCountdown.addEventListener("click", pauseCD);
+function pauseCD() {
+  buttonStartCountdown.disabled = false;
+  pause = true;
+  clearInterval(secIntervalId);
 }

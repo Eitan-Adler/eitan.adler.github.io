@@ -15,6 +15,7 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
   grid-template-rows: 1fr 5fr 1fr;
+  column-gap: 5px;
 }
 
 button.stop-countdown {
@@ -24,6 +25,11 @@ button.stop-countdown {
 button.start-countdown {
   grid-row: 3;
   grid-column: 1/3;
+}
+
+button.pause-countdown {
+  grid-row: 3;
+  grid-column: 3;
 }
 
 .clock {
@@ -49,7 +55,7 @@ span.sec {
 input.input.minutes {
   width: 35px;
 }
-img {
+.pic {
   grid-column: 3;
 }
 .clock {
