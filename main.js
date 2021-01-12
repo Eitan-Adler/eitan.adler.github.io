@@ -90,3 +90,5 @@ function pauseCD() {
   pause = true;
   clearInterval(secIntervalId);
 }
+var slider = document.querySelector(".my-slider");
+console.log(slider);

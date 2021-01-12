@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css"
+    />
     <title>Countdown</title>
   </head>
   <body>
-    <div class="timer">
+    <div class="timer" style="display: none">
       <span class="min">Minutes</span>
       <span><input type="number" class="input minutes" min="0" /></span>
       <span class="sec">Seconds</span>
@@ -40,7 +44,55 @@
       <button class="start-countdown">Start Countdown</button>
       <button class="pause-countdown">Pause</button>
       <button class="stop-countdown">Stop Countdown</button>
-      <script src="main.js"></script>
     </div>
+    <div class="my-slider">
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1468530986413-2c93495ed020?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cGxhbmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        />
+      </div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1487692703274-4965f352a3ef?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjV8fHBsYW5lfGVufDB8fDB8&auto=format&fit=crop&w=500&q=60"
+        />
+      </div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1512289984044-071903207f5e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8cGxhbmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        />
+      </div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1496206945239-d388b467f2e6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHBsYW5lfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        />
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1483375801503-374c5f660610?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBsYW5lfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        />
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <script>
+      var slider = tns({
+        container: ".my-slider",
+        items: 1,
+        responsive: {
+          640: {
+            edgePadding: 20,
+            gutter: 20,
+            items: 2,
+          },
+          700: {
+            gutter: 30,
+          },
+          900: {
+            items: 3,
+          },
+        },
+      });
+    </script>
+    <script src="main.js"></script>
   </body>
 </html>
