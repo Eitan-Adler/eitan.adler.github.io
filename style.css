@@ -162,3 +162,17 @@ span.min {
 .cat1 img {
   max-height: 140px;
 }
+.demo-container {
+  width: 100%;
+  max-width: 350px;
+  margin: 50px auto;
+}
+
+form {
+  margin: 30px;
+}
+.form-input {
+  width: 200px;
+  margin: 10px auto;
+  display: block;
+}

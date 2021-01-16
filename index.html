@@ -73,7 +73,41 @@
         />
       </div>
     </div>
+    <div class="demo-container">
+      <div class="form-container active">
+        <h1>wanna buy a plane?</h1>
+        <form action="">
+          <input
+            class="form-input"
+            placeholder="Card number"
+            type="tel"
+            name="number"
+          />
+          <input
+            class="form-input"
+            placeholder="Full name"
+            type="text"
+            name="name"
+          />
+          <input
+            class="form-input"
+            placeholder="MM/YY"
+            type="tel"
+            name="expiry"
+          />
+          <input
+            class="form-input"
+            placeholder="CVC"
+            type="number"
+            name="cvc"
+            min="0"
+          />
+        </form>
+        <div class="card-wrapper"></div>
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <script src="card.js"></script>
     <script>
       var slider = tns({
         container: ".my-slider",
@@ -93,6 +127,12 @@
             items: 3,
           },
         },
+      });
+    </script>
+    <script>
+      new Card({
+        form: document.querySelector("form"),
+        container: ".card-wrapper",
       });
     </script>
     <script src="main.js"></script>
